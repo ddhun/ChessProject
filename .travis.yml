@@ -4,7 +4,6 @@ php:
   - 5.6
 
 before_script:
-  - cd ChessProject-PHP
   - composer install --dev
 
 script:

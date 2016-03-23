@@ -34,11 +34,11 @@ class ChessBoard
     /** @return: boolean */
     public function isLegalBoardPosition($_xCoordinate, $_yCoordinate)
     {
-        if ($_xCoordinate < 0 || $_xCoordinate > self::MAX_BOARD_WIDTH-1) {
+        if ($_xCoordinate < 0 || $_xCoordinate >= self::MAX_BOARD_WIDTH) {
             return false;
         }
 
-        if ($_yCoordinate < 0 || $_yCoordinate > self::MAX_BOARD_HEIGHT-1) {
+        if ($_yCoordinate < 0 || $_yCoordinate >= self::MAX_BOARD_HEIGHT) {
             return false;
         }
 
