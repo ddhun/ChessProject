@@ -17,12 +17,31 @@ class ChessBoard
 
     public function add(Pawn $pawn, $_xCoordinate, $_yCoordinate, PieceColorEnum $pieceColor)
     {
-        throw new \ErrorException("Need to implement ChessBoard.add() ");
+        $currentPiece = $this->_pieces[$_xCoordinate][$_yCoordinate];
+
+        if ($currentPiece instanceof Pawn) {
+            if ($currentPiece->getPieceColor() == $pieceColor) {
+                $pawn->setXCoordinate(-1);
+                $pawn->setYCoordinate(-1);
+            }
+        } else {
+            $this->_pieces[$_xCoordinate][$_yCoordinate] = $pawn;
+            $pawn->setXCoordinate($_xCoordinate);
+            $pawn->setYCoordinate($_yCoordinate);
+        }
     }
 
     /** @return: boolean */
     public function isLegalBoardPosition($_xCoordinate, $_yCoordinate)
     {
-        throw new \ErrorException("Need to implement ChessBoard.isLegalBoardPosition()");
+        if ($_xCoordinate < 0 || $_xCoordinate > self::MAX_BOARD_WIDTH-1) {
+            return false;
+        }
+
+        if ($_yCoordinate < 0 || $_yCoordinate > self::MAX_BOARD_HEIGHT-1) {
+            return false;
+        }
+
+        return true;
     }
 }

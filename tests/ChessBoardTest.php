@@ -78,7 +78,7 @@ class ChessBoardTest extends \PHPUnit_Framework_TestCase
 
     public function testLimits_The_Number_Of_Pawns()
     {
-        for ($i = 0; $i < 10; $i++) {
+        for ($i = 0; $i < ChessBoard::MAX_BOARD_HEIGHT; $i++) {
             $pawn = new Pawn(PieceColorEnum::BLACK());
             $row = $i / ChessBoard::MAX_BOARD_WIDTH;
             $this->_testSubject->add($pawn, 6 + $row, $i % ChessBoard::MAX_BOARD_WIDTH, PieceColorEnum::BLACK());
