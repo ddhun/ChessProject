@@ -1,4 +1,2 @@
+bin
 vendor
-vendor/*
-.idea/
-composer.phar
