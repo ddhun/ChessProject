@@ -4,15 +4,15 @@ namespace LogicNow;
 
 class MovementTypeEnum
 {
-    private static $_instance = false;
-    private static $_move;
-    private static $_capture;
+    private static $instance = false;
+    private static $move;
+    private static $capture;
 
-    private $_id;
+    private $id;
 
-    private function __construct($_id)
+    private function __construct($id)
     {
-        $this->_id = $_id;
+        $this->id = $id;
     }
 
     /** @return: MovementTypeEnum */
@@ -20,7 +20,7 @@ class MovementTypeEnum
     {
         self::initialise();
 
-        return self::$_move;
+        return self::$move;
     }
 
     /** @return: MovementTypeEnum */
@@ -28,17 +28,16 @@ class MovementTypeEnum
     {
         self::initialise();
 
-        return self::$_capture;
+        return self::$capture;
     }
 
     private static function initialise()
     {
-        if (self::$_instance) {
+        if (self::$instance) {
             return;
         }
 
-        self::$_move = new MovementTypeEnum(1);
-        self::$_capture = new MovementTypeEnum(2);
+        self::$move = new MovementTypeEnum(1);
+        self::$capture = new MovementTypeEnum(2);
     }
-
 }

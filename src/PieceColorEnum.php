@@ -4,15 +4,15 @@ namespace LogicNow;
 
 class PieceColorEnum
 {
-    private static $_instance = false;
-    private static $_white;
-    private static $_black;
+    private static $instance = false;
+    private static $white;
+    private static $black;
 
-    private $_id;
+    private $id;
 
-    private function __construct($_id)
+    private function __construct($id)
     {
-        $this->_id = $_id;
+        $this->id = $id;
     }
 
     /** @return: PieceColorEnum */
@@ -20,7 +20,7 @@ class PieceColorEnum
     {
         self::initialise();
 
-        return self::$_white;
+        return self::$white;
     }
 
     /** @return: PieceColorEnum */
@@ -28,17 +28,16 @@ class PieceColorEnum
     {
         self::initialise();
 
-        return self::$_black;
+        return self::$black;
     }
 
     private static function initialise()
     {
-        if (self::$_instance) {
+        if (self::$instance) {
             return;
         }
 
-        self::$_white = new PieceColorEnum(1);
-        self::$_black = new PieceColorEnum(2);
+        self::$white = new PieceColorEnum(1);
+        self::$black = new PieceColorEnum(2);
     }
-
 }

@@ -2,75 +2,74 @@
 
 namespace LogicNow;
 
-
 class Pawn
 {
 
     /** @var PieceColorEnum */
-    private $_pieceColorEnum;
+    private $pieceColorEnum;
     /** @var  ChessBoard */
-    private $_chessBoard;
+    private $chessBoard;
     /** @var  int */
-    private $_xCoordinate;
+    private $xCoordinate;
     /** @var  int */
-    private $_yCoordinate;
+    private $yCoordinate;
 
     public function __construct(PieceColorEnum $pieceColorEnum)
     {
-        $this->_pieceColorEnum = $pieceColorEnum;
+        $this->pieceColorEnum = $pieceColorEnum;
     }
 
     public function getChesssBoard()
     {
-        return $this->_chessBoard;
+        return $this->chessBoard;
     }
 
     public function setChessBoard(ChessBoard $chessBoard)
     {
-        $this->_chessBoard = $chessBoard;
+        $this->chessBoard = $chessBoard;
     }
 
     /** @return int */
     public function getXCoordinate()
     {
-        return $this->_xCoordinate;
+        return $this->xCoordinate;
     }
 
     /** @var int */
     public function setXCoordinate($value)
     {
-        $this->_xCoordinate = $value;
+        $this->xCoordinate = $value;
     }
 
     /** @return int */
     public function getYCoordinate()
     {
-        return $this->_yCoordinate;
+        return $this->yCoordinate;
     }
 
     /** @var int */
     public function setYCoordinate($value)
     {
-        $this->_yCoordinate = $value;
+        $this->yCoordinate = $value;
     }
 
     public function getPieceColor()
     {
-        return $this->_pieceColorEnum;
+        return $this->pieceColorEnum;
     }
 
     public function setPieceColor(PieceColorEnum $value)
     {
-        $this->_pieceColorEnum = $value;
+        $this->pieceColorEnum = $value;
     }
 
     public function move(MovementTypeEnum $movementTypeEnum, $newX, $newY)
     {
-        if ($this->_chessBoard->isLegalBoardPosition($newX, $newY)) {
-            if ($newX === $this->_xCoordinate
+        if ($this->chessBoard->isLegalBoardPosition($newX, $newY)) {
+            if ($newX === $this->xCoordinate
                 && $movementTypeEnum == MovementTypeEnum::MOVE()) {
-                $this->_xCoordinate = $newX;
-                $this->_yCoordinate = $newY;
+                $this->xCoordinate = $newX;
+                $this->yCoordinate = $newY;
             }
         }
     }
@@ -82,10 +81,9 @@ class Pawn
 
     protected function currentPositionAsString()
     {
-        $result = "Current X: " . $this->_xCoordinate . PHP_EOL;
-        $result .= "Current Y: " . $this->_yCoordinate . PHP_EOL;
-        $result .= "Piece Color: " . $this->_pieceColorEnum;
+        $result = "Current X: " . $this->xCoordinate . PHP_EOL;
+        $result .= "Current Y: " . $this->yCoordinate . PHP_EOL;
+        $result .= "Piece Color: " . $this->pieceColorEnum;
         return $result;
     }
-
 }

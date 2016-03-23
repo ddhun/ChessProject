@@ -8,16 +8,16 @@ class ChessBoard
     const MAX_BOARD_WIDTH = 7;
     const MAX_BOARD_HEIGHT = 7;
 
-    private $_pieces;
+    private $pieces;
 
     public function __construct()
     {
-        $this->_pieces = array_fill(0, self::MAX_BOARD_WIDTH, array_fill(0, self::MAX_BOARD_HEIGHT, 0));
+        $this->pieces = array_fill(0, self::MAX_BOARD_WIDTH, array_fill(0, self::MAX_BOARD_HEIGHT, 0));
     }
 
-    public function add(Pawn $pawn, $_xCoordinate, $_yCoordinate, PieceColorEnum $pieceColor)
+    public function add(Pawn $pawn, $xCoordinate, $yCoordinate, PieceColorEnum $pieceColor)
     {
-        $currentPiece = $this->_pieces[$_xCoordinate][$_yCoordinate];
+        $currentPiece = $this->pieces[$xCoordinate][$yCoordinate];
 
         if ($currentPiece instanceof Pawn) {
             if ($currentPiece->getPieceColor() == $pieceColor) {
@@ -25,20 +25,20 @@ class ChessBoard
                 $pawn->setYCoordinate(-1);
             }
         } else {
-            $this->_pieces[$_xCoordinate][$_yCoordinate] = $pawn;
-            $pawn->setXCoordinate($_xCoordinate);
-            $pawn->setYCoordinate($_yCoordinate);
+            $this->pieces[$xCoordinate][$yCoordinate] = $pawn;
+            $pawn->setXCoordinate($xCoordinate);
+            $pawn->setYCoordinate($yCoordinate);
         }
     }
 
     /** @return: boolean */
-    public function isLegalBoardPosition($_xCoordinate, $_yCoordinate)
+    public function isLegalBoardPosition($xCoordinate, $yCoordinate)
     {
-        if ($_xCoordinate < 0 || $_xCoordinate >= self::MAX_BOARD_WIDTH) {
+        if ($xCoordinate < 0 || $xCoordinate >= self::MAX_BOARD_WIDTH) {
             return false;
         }
 
-        if ($_yCoordinate < 0 || $_yCoordinate >= self::MAX_BOARD_HEIGHT) {
+        if ($yCoordinate < 0 || $yCoordinate >= self::MAX_BOARD_HEIGHT) {
             return false;
         }
 
