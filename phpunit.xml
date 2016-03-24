@@ -8,7 +8,7 @@
          processIsolation="false"
          stopOnFailure="false"
          syntaxCheck="true">
-    <testsuite name="ChessProject test suite">
-        <directory>tests</directory>
+    <testsuite name="ChessProject unit test suite">
+        <directory>tests/unit</directory>
     </testsuite>
 </phpunit>
